@@ -12,10 +12,13 @@ public class HuffmanCoder {
 
     public static TreeMap<Character, Float> readAlphabetFrequencies() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(ALPHABET_FILE_PATH));
+        String line = reader.readLine();
+
         List<Character> alphabet = Arrays
-                .stream(reader.readLine().split(" "))
+                .stream(line.split(" "))
                 .map(elem -> elem.charAt(0))
                 .toList();
+
         List<String> frequencies = Arrays.stream(reader.readLine().split(" ")).toList();
         TreeMap<Character, Float> freqMap = new TreeMap<>();
         for (int i = 0; i < alphabet.size(); i++) {

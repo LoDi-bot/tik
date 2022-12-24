@@ -8,7 +8,18 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         // генерируем таблицу префиксных кодов
-        TreeMap<Character, String> codes = HuffmanCoder.getCodes();
+        TreeMap<Character, String> codes;
+        try {
+            codes = HuffmanCoder.getCodes();
+        } catch (RuntimeException exception) {
+            if  (exception.getClass().getName().equals("java.lang.NullPointerException")) {
+                System.out.println("Алфавит не найден - похоже файл пустой, пожалуйста проверьте файл с алфавитом!!!");
+            }
+            if (exception.getClass().getName().equals("java.lang.ArrayIndexOutOfBoundsException")) {
+                System.out.println("В алфавите не хватает вероятностей, , пожалуйста проверьте файл с алфавитом!!!");
+            }
+            return;
+        }
 
         // вывод кодов для символов алфавита
         for (Map.Entry<Character, String> entry : codes.entrySet()) {

@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 
 public class MTFDecoder {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("/Users/lodi/Desktop/CoderDecoder/src/decoder/alphabet.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("/Users/lodi/Desktop/tik/CoderDecoder/src/decoder/alphabet.txt"));
         String str = reader.readLine();
         String[] strSplit = str.split(" ");
         List<String> alphabet = new ArrayList<>(Arrays.asList(strSplit)).stream().sorted().collect(Collectors.toList());
